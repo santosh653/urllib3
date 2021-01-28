@@ -36,13 +36,32 @@ jobs:
     - python: 3.7
       env: DOWNSTREAM=requests
       stage: integration
+      arch: amd64
 
     - python: 3.7
       env: DOWNSTREAM=botocore
       stage: integration
+      arch: amd64
 
     - python: 3.7
       stage: deploy
+      arch: amd64
+    
+    - python: 3.7
+      env: DOWNSTREAM=requests
+      stage: integration
+      arch: ppc64le
+
+    - python: 3.7
+      env: DOWNSTREAM=botocore
+      stage: integration
+      arch: ppc64le
+
+    - python: 3.7
+      stage: deploy
+      arch: ppc64le
+    
+      
       script:
         - ./ci/deploy.sh
 
